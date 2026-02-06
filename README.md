@@ -12,7 +12,8 @@ quick-landing-page/
 │   └── landing-b/          # Astro static site
 ├── packages/
 │   ├── ui/                 # Shared Astro components (@quick-landing-page/ui)
-│   └── shared-config/      # Shared site config (@quick-landing-page/shared-config)
+│   ├── shared-config/      # Shared site config + Zod schemas (@quick-landing-page/shared-config)
+│   └── tailwind-config/    # Shared Tailwind CSS v4 setup (@quick-landing-page/tailwind-config)
 ├── turbo.json              # Turborepo task config
 ├── pnpm-workspace.yaml     # pnpm workspace definition
 └── package.json
@@ -21,15 +22,16 @@ quick-landing-page/
 ### Apps
 
 - **api** — Hono API service that receives sign-up form submissions and stores them in Postgres. Differentiates sign-ups by `campaign` column. Includes an interactive CLI for querying signup data.
-- **landing-a** — Landing page A with sign-up form (`campaign="landing-a"`)
-- **landing-b** — Landing page B with sign-up form (`campaign="landing-b"`)
+- **landing-a** — "Ember" landing page — warm, editorial design with cream/amber/terracotta palette, Playfair Display + DM Sans fonts (`campaign="landing-a"`)
+- **landing-b** — "Arctic" landing page — cool, geometric design with dark/cyan palette, Outfit + JetBrains Mono fonts (`campaign="landing-b"`)
 
 ### Shared Packages
 
 These are "Just-in-Time" packages with no build step — Astro/Vite resolves the TypeScript source directly.
 
-- **@quick-landing-page/ui** — Shared Astro components (`Button`, `SignupForm`)
-- **@quick-landing-page/shared-config** — Shared site configuration defaults (title, description, lang)
+- **@quick-landing-page/ui** — Shared Astro components (`Button`, `SignupForm`) styled with Tailwind utilities and CSS custom properties so they adapt to each app's theme
+- **@quick-landing-page/shared-config** — Shared site configuration (title, description, lang) and Zod validation schemas
+- **@quick-landing-page/tailwind-config** — Shared Tailwind CSS v4 setup (`tailwindcss` + `@tailwindcss/vite` installed once here, not in each app)
 
 ## Sign-Up Architecture
 
@@ -41,6 +43,61 @@ Postgres ◄───────── DATABASE_URL ────┘
 ```
 
 Each landing page includes a `SignupForm` component that POSTs `{ email, campaign, name? }` to the API. The API validates the payload, inserts into Postgres, and returns the result. Duplicate email+campaign combinations return a 409.
+
+### Validation (Zod)
+
+Zod is installed once in `@quick-landing-page/shared-config` and the `signupSchema` is the single source of truth for signup validation:
+
+```ts
+// packages/shared-config/src/schemas.ts
+import { z } from "zod";
+
+export const signupSchema = z.object({
+  email: z.string().min(1, "Email is required").email("Please enter a valid email address"),
+  campaign: z.string().min(1, "Campaign is required"),
+  name: z.string().optional(),
+});
+
+export type SignupInput = z.infer<typeof signupSchema>;
+```
+
+This schema is used in two places:
+
+1. **Client-side** — `SignupForm.astro` runs `signupSchema.safeParse()` before submitting. Invalid input shows inline field errors without a network request.
+2. **Server-side** — The API's `POST /signups` handler runs the same `signupSchema.safeParse()` on the request body, replacing manual `if`/`typeof` checks.
+
+To change validation rules, edit `packages/shared-config/src/schemas.ts` — both sides update automatically.
+
+## Tailwind CSS v4
+
+Tailwind is set up via the `@tailwindcss/vite` plugin (the `@astrojs/tailwind` integration is deprecated). The plugin and `tailwindcss` are installed once in `@quick-landing-page/tailwind-config`. Each app adds it as a workspace dependency and wires the Vite plugin in `astro.config.mjs`:
+
+```js
+import { tailwindPlugin } from "@quick-landing-page/tailwind-config/plugin";
+
+export default defineConfig({
+  vite: { plugins: [tailwindPlugin()] },
+});
+```
+
+### Per-App Theming
+
+Each app has its own `src/styles/theme.css` that imports the shared base and defines brand tokens via a `@theme` block:
+
+```css
+@import "@quick-landing-page/tailwind-config/base.css";
+@source "../../../../packages/ui/src/**/*.astro";
+
+@theme {
+  --color-accent: #d4a574;
+  --font-display: "Playfair Display", Georgia, serif;
+  /* ... */
+}
+```
+
+The `@source` directive tells Tailwind to scan the shared UI package for utility classes (Tailwind v4 excludes `node_modules` by default).
+
+Shared components use CSS custom properties (e.g. `bg-[var(--color-accent)]`) so the same component renders with the correct brand colors in each app.
 
 ### API Endpoints
 
@@ -124,15 +181,18 @@ pnpm turbo preview --filter=landing-a
 3. Update `apps/landing-c/turbo.json`:
    - Change env var prefix to `LANDING_C_*`
 
-4. Update the page content in `apps/landing-c/src/pages/index.astro`
+4. Define your brand theme in `apps/landing-c/src/styles/theme.css`
+   - Set your own `--color-accent`, `--color-surface`, fonts, etc. in a `@theme` block
+
+5. Update the page content in `apps/landing-c/src/pages/index.astro`
    - Change the `campaign` prop on `SignupForm` to `"landing-c"`
 
-5. Install dependencies:
+6. Install dependencies:
    ```bash
    pnpm install
    ```
 
-6. Verify it builds:
+7. Verify it builds:
    ```bash
    pnpm turbo build --filter=landing-c
    ```
