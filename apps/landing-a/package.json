@@ -10,6 +10,7 @@
   "dependencies": {
     "astro": "^5",
     "@quick-landing-page/ui": "workspace:*",
-    "@quick-landing-page/shared-config": "workspace:*"
+    "@quick-landing-page/shared-config": "workspace:*",
+    "@quick-landing-page/tailwind-config": "workspace:*"
   }
 }

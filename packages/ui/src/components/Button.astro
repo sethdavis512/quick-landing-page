@@ -2,43 +2,22 @@
 interface Props {
   href?: string;
   variant?: "primary" | "secondary";
+  class?: string;
 }
 
-const { href, variant = "primary" } = Astro.props;
+const { href, variant = "primary", class: className } = Astro.props;
 const Element = href ? "a" : "button";
+
+const baseClasses = "inline-block px-6 py-3 rounded-md font-semibold no-underline cursor-pointer border-none text-base transition-opacity duration-200 hover:opacity-85";
+const variantClasses = {
+  primary: "bg-[var(--color-accent)] text-white",
+  secondary: "bg-[var(--color-surface)] text-[var(--color-charcoal,var(--color-light,#1f2937))]",
+};
 ---
 
 <Element
   href={href}
-  class:list={["btn", `btn--${variant}`]}
+  class:list={[baseClasses, variantClasses[variant], className]}
 >
   <slot />
 </Element>
-
-<style>
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    font-size: 1rem;
-    transition: opacity 0.2s;
-  }
-
-  .btn:hover {
-    opacity: 0.85;
-  }
-
-  .btn--primary {
-    background-color: #6d28d9;
-    color: #fff;
-  }
-
-  .btn--secondary {
-    background-color: #e5e7eb;
-    color: #1f2937;
-  }
-</style>

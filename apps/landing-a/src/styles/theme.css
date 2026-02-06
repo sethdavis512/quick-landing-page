@@ -1,0 +1,18 @@
+@import "@quick-landing-page/tailwind-config/base.css";
+
+@theme {
+  --color-cream: #faf3e8;
+  --color-charcoal: #1a1a2e;
+  --color-amber: #d4a574;
+  --color-terracotta: #c1666b;
+  --color-accent: #d4a574;
+  --color-surface: #f5ebe0;
+  --color-muted: #8b7e74;
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+}

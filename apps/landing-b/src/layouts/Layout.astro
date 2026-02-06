@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "@quick-landing-page/shared-config";
+import "../styles/theme.css";
 
 interface Props {
   title?: string;
@@ -15,25 +16,44 @@ const { title = siteConfig.title, description = siteConfig.description } = Astro
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="bg-dark text-light font-body leading-relaxed relative min-h-screen">
+    <div class="grid-overlay"></div>
     <slot />
   </body>
 </html>
 
 <style is:global>
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  .grid-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image:
+      linear-gradient(rgba(0, 212, 255, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
   }
 
-  body {
-    font-family: system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    color: #1f2937;
+  body > *:not(.grid-overlay) {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Override autofill styles for dark background */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #f0f6fc;
+    -webkit-box-shadow: 0 0 0px 1000px #161b22 inset;
+    transition: background-color 5000s ease-in-out 0s;
   }
 </style>

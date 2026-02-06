@@ -1,58 +1,167 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Button, SignupForm } from "@quick-landing-page/ui";
-import { siteConfig } from "@quick-landing-page/shared-config";
 
 const apiUrl = import.meta.env.PUBLIC_API_URL;
 ---
 
-<Layout title="Landing B">
+<Layout title="Arctic">
+  <!-- Nav -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-dark/80 border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="font-mono text-lg font-bold text-cyan no-underline tracking-tight">
+        &gt;_ Arctic
+      </a>
+      <Button href="#signup">Request Access</Button>
+    </div>
+  </nav>
+
   <main>
-    <section class="hero">
-      <h1>Landing B</h1>
-      <p>{siteConfig.description}</p>
-      <Button href="#cta">Get Started</Button>
+    <!-- Hero -->
+    <section class="min-h-[90vh] flex flex-col items-center justify-center text-center px-6 py-24">
+      <p class="font-mono text-cyan text-sm tracking-widest uppercase mb-6">// Next-Generation Platform</p>
+      <h1 class="font-display text-light font-black leading-tight mb-6" style="font-size: clamp(2.75rem, 6vw, 5rem);">
+        Build at the<br />
+        <span class="text-cyan">speed of thought</span>
+      </h1>
+      <p class="text-slate text-lg max-w-[55ch] mb-10 font-body">
+        A precision-engineered platform for developers who demand performance,
+        clarity, and zero compromises.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 items-center">
+        <Button href="#signup">Get Started</Button>
+        <a href="#features" class="text-slate hover:text-light transition-colors font-mono text-sm">
+          Explore features &darr;
+        </a>
+      </div>
+      <div class="mt-16 flex gap-8 text-center font-mono">
+        <div>
+          <span class="text-cyan text-2xl font-bold">99.9%</span>
+          <span class="block text-slate text-xs mt-1">Uptime</span>
+        </div>
+        <div class="w-px bg-border"></div>
+        <div>
+          <span class="text-cyan text-2xl font-bold">&lt;50ms</span>
+          <span class="block text-slate text-xs mt-1">Latency</span>
+        </div>
+        <div class="w-px bg-border"></div>
+        <div>
+          <span class="text-cyan text-2xl font-bold">10x</span>
+          <span class="block text-slate text-xs mt-1">Faster</span>
+        </div>
+      </div>
     </section>
-    <section id="cta" class="signup">
-      <h2>Stay in the loop</h2>
-      <SignupForm campaign="landing-b" apiUrl={apiUrl} />
+
+    <!-- Features -->
+    <section id="features" class="py-24 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-16 text-light">
+          Engineered for precision
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-surface rounded-lg p-8 border border-border">
+            <span class="font-mono text-cyan text-sm">01</span>
+            <h3 class="font-display text-xl font-bold mt-3 mb-3 text-light">Blazing Performance</h3>
+            <p class="text-slate leading-relaxed">
+              Sub-millisecond response times powered by edge computing. Every
+              request optimized, every byte accounted for.
+            </p>
+          </div>
+          <div class="bg-surface rounded-lg p-8 border border-border">
+            <span class="font-mono text-cyan text-sm">02</span>
+            <h3 class="font-display text-xl font-bold mt-3 mb-3 text-light">Type-Safe APIs</h3>
+            <p class="text-slate leading-relaxed">
+              End-to-end type safety from database to frontend. Catch errors at
+              compile time, not in production.
+            </p>
+          </div>
+          <div class="bg-surface rounded-lg p-8 border border-border">
+            <span class="font-mono text-cyan text-sm">03</span>
+            <h3 class="font-display text-xl font-bold mt-3 mb-3 text-light">Zero Config Deploy</h3>
+            <p class="text-slate leading-relaxed">
+              Push to deploy with automatic scaling, preview environments,
+              and rollback in seconds. Infrastructure as code, simplified.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="py-24 px-6 bg-surface/50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-16 text-light">
+          How it works
+        </h2>
+        <div class="relative">
+          <!-- Vertical accent line -->
+          <div class="absolute left-6 top-0 bottom-0 w-px bg-cyan/20 hidden md:block"></div>
+
+          <div class="space-y-12">
+            <div class="flex gap-6 items-start">
+              <div class="shrink-0 w-12 h-12 rounded-full bg-cyan/10 border border-cyan/30 flex items-center justify-center font-mono text-cyan font-bold">
+                1
+              </div>
+              <div>
+                <h3 class="font-display text-xl font-bold text-light mb-2">Connect your repo</h3>
+                <p class="text-slate">Link your GitHub or GitLab repository. Arctic detects your framework and configures automatically.</p>
+              </div>
+            </div>
+            <div class="flex gap-6 items-start">
+              <div class="shrink-0 w-12 h-12 rounded-full bg-cyan/10 border border-cyan/30 flex items-center justify-center font-mono text-cyan font-bold">
+                2
+              </div>
+              <div>
+                <h3 class="font-display text-xl font-bold text-light mb-2">Push your code</h3>
+                <p class="text-slate">Every push triggers a build. Preview deployments for branches, production for main.</p>
+              </div>
+            </div>
+            <div class="flex gap-6 items-start">
+              <div class="shrink-0 w-12 h-12 rounded-full bg-cyan/10 border border-cyan/30 flex items-center justify-center font-mono text-cyan font-bold">
+                3
+              </div>
+              <div>
+                <h3 class="font-display text-xl font-bold text-light mb-2">Ship with confidence</h3>
+                <p class="text-slate">Real-time metrics, instant rollbacks, and zero-downtime deploys. Your code, live in seconds.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="py-24 px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div>
+            <span class="font-mono text-cyan font-bold block" style="font-size: clamp(2.5rem, 5vw, 4rem);">2.4M</span>
+            <span class="text-slate text-sm font-mono mt-2 block">Deployments processed</span>
+          </div>
+          <div>
+            <span class="font-mono text-cyan font-bold block" style="font-size: clamp(2.5rem, 5vw, 4rem);">140+</span>
+            <span class="text-slate text-sm font-mono mt-2 block">Edge locations</span>
+          </div>
+          <div>
+            <span class="font-mono text-cyan font-bold block" style="font-size: clamp(2.5rem, 5vw, 4rem);">12ms</span>
+            <span class="text-slate text-sm font-mono mt-2 block">Average cold start</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signup -->
+    <section id="signup" class="py-24 px-6 bg-surface/50">
+      <div class="max-w-md mx-auto text-center flex flex-col items-center gap-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-light">Get early access</h2>
+        <p class="text-slate font-body">Join the waitlist. Limited beta spots available.</p>
+        <SignupForm campaign="landing-b" apiUrl={apiUrl} />
+      </div>
     </section>
   </main>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 text-center border-t border-border">
+    <p class="text-slate text-sm font-mono">&copy; 2026 Arctic. Built for builders.</p>
+  </footer>
 </Layout>
-
-<style>
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    text-align: center;
-    gap: 1.5rem;
-    padding: 2rem;
-  }
-
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-  }
-
-  p {
-    font-size: 1.25rem;
-    color: #6b7280;
-    max-width: 40ch;
-  }
-
-  .signup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 4rem 2rem;
-    gap: 1.5rem;
-  }
-
-  .signup h2 {
-    font-size: 2rem;
-    font-weight: 700;
-  }
-</style>

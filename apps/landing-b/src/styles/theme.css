@@ -1,0 +1,20 @@
+@import "@quick-landing-page/tailwind-config/base.css";
+
+@theme {
+  --color-dark: #0d1117;
+  --color-cyan: #00d4ff;
+  --color-slate: #8b949e;
+  --color-light: #f0f6fc;
+  --color-accent: #00d4ff;
+  --color-surface: #161b22;
+  --color-muted: #8b949e;
+  --color-border: #30363d;
+
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Outfit", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}

@@ -7,25 +7,30 @@ interface Props {
 const { campaign, apiUrl } = Astro.props;
 ---
 
-<form class="signup-form" data-api-url={apiUrl}>
+<form class="signup-form w-full max-w-md" data-api-url={apiUrl}>
   <input type="hidden" name="campaign" value={campaign} />
-  <div class="signup-form__fields">
+  <div class="flex flex-col gap-3">
     <input
       type="text"
       name="name"
       placeholder="Name (optional)"
-      class="signup-form__input"
+      class="signup-form__input px-4 py-3 border border-[var(--color-border,#d1d5db)] rounded-md text-base outline-none transition-colors duration-200 focus:border-[var(--color-accent)] bg-transparent text-inherit"
     />
     <input
       type="email"
       name="email"
       placeholder="Email address"
       required
-      class="signup-form__input"
+      class="signup-form__input px-4 py-3 border border-[var(--color-border,#d1d5db)] rounded-md text-base outline-none transition-colors duration-200 focus:border-[var(--color-accent)] bg-transparent text-inherit"
     />
-    <button type="submit" class="signup-form__button">Sign Up</button>
+    <button
+      type="submit"
+      class="signup-form__button px-6 py-3 bg-[var(--color-accent)] text-white border-none rounded-md font-semibold text-base cursor-pointer transition-opacity duration-200 hover:opacity-85 disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      Sign Up
+    </button>
   </div>
-  <p class="signup-form__message" aria-live="polite"></p>
+  <p class="signup-form__message mt-3 text-sm min-h-5" aria-live="polite"></p>
 </form>
 
 <script>
@@ -40,7 +45,7 @@ const { campaign, apiUrl } = Astro.props;
 
       button.disabled = true;
       message.textContent = "";
-      message.className = "signup-form__message";
+      message.className = "signup-form__message mt-3 text-sm min-h-5";
 
       try {
         const res = await fetch(`${apiUrl}/signups`, {
@@ -57,79 +62,18 @@ const { campaign, apiUrl } = Astro.props;
 
         if (res.ok) {
           message.textContent = "You're signed up!";
-          message.classList.add("signup-form__message--success");
+          message.classList.add("text-green-600");
           form.reset();
         } else {
           message.textContent = data.error || "Something went wrong.";
-          message.classList.add("signup-form__message--error");
+          message.classList.add("text-red-600");
         }
       } catch {
         message.textContent = "Network error. Please try again.";
-        message.classList.add("signup-form__message--error");
+        message.classList.add("text-red-600");
       } finally {
         button.disabled = false;
       }
     });
   });
 </script>
-
-<style>
-  .signup-form {
-    width: 100%;
-    max-width: 28rem;
-  }
-
-  .signup-form__fields {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .signup-form__input {
-    padding: 0.75rem 1rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .signup-form__input:focus {
-    border-color: #6d28d9;
-  }
-
-  .signup-form__button {
-    padding: 0.75rem 1.5rem;
-    background-color: #6d28d9;
-    color: #fff;
-    border: none;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-
-  .signup-form__button:hover {
-    opacity: 0.85;
-  }
-
-  .signup-form__button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .signup-form__message {
-    margin-top: 0.75rem;
-    font-size: 0.875rem;
-    min-height: 1.25rem;
-  }
-
-  .signup-form__message--success {
-    color: #059669;
-  }
-
-  .signup-form__message--error {
-    color: #dc2626;
-  }
-</style>

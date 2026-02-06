@@ -1,0 +1,13 @@
+{
+  "name": "@quick-landing-page/tailwind-config",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./plugin": "./src/plugin.ts",
+    "./base.css": "./src/base.css"
+  },
+  "dependencies": {
+    "tailwindcss": "^4",
+    "@tailwindcss/vite": "^4"
+  }
+}

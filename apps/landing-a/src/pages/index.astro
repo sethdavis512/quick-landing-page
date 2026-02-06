@@ -1,58 +1,100 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Button, SignupForm } from "@quick-landing-page/ui";
-import { siteConfig } from "@quick-landing-page/shared-config";
 
 const apiUrl = import.meta.env.PUBLIC_API_URL;
 ---
 
-<Layout title="Landing A">
+<Layout title="Ember">
+  <!-- Nav -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-cream/80 border-b border-amber/20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="font-display text-2xl font-bold text-charcoal no-underline">Ember</a>
+      <Button href="#signup">Join Now</Button>
+    </div>
+  </nav>
+
   <main>
-    <section class="hero">
-      <h1>Landing A</h1>
-      <p>{siteConfig.description}</p>
-      <Button href="#cta">Get Started</Button>
+    <!-- Hero -->
+    <section class="min-h-[90vh] flex flex-col items-center justify-center text-center px-6 py-24">
+      <p class="text-amber font-body font-semibold tracking-widest uppercase text-sm mb-6">A New Standard</p>
+      <h1 class="font-display text-charcoal font-black leading-tight mb-6" style="font-size: clamp(2.75rem, 6vw, 5rem);">
+        Crafted for those<br />who notice the details
+      </h1>
+      <p class="text-muted text-lg max-w-[50ch] mb-10 font-body">
+        An editorial experience built on warmth, intention, and quiet refinement.
+        Join a community that values substance over spectacle.
+      </p>
+      <Button href="#signup">Get Early Access</Button>
+      <div class="w-16 h-1 bg-amber rounded-full mt-16"></div>
     </section>
-    <section id="cta" class="signup">
-      <h2>Stay in the loop</h2>
-      <SignupForm campaign="landing-a" apiUrl={apiUrl} />
+
+    <!-- Features -->
+    <section class="py-24 px-6 bg-surface/50">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-16 text-charcoal">
+          Why Ember stands apart
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-cream/80 rounded-lg p-8 border border-amber/10">
+            <div class="w-10 h-10 rounded-full bg-amber/20 flex items-center justify-center mb-5">
+              <span class="text-amber text-lg">&#9672;</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-3 text-charcoal">Intentional Design</h3>
+            <p class="text-muted leading-relaxed">
+              Every element serves a purpose. No clutter, no noise — just thoughtful
+              composition that lets the content breathe.
+            </p>
+          </div>
+          <div class="bg-cream/80 rounded-lg p-8 border border-amber/10">
+            <div class="w-10 h-10 rounded-full bg-terracotta/20 flex items-center justify-center mb-5">
+              <span class="text-terracotta text-lg">&#9830;</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-3 text-charcoal">Warm Aesthetics</h3>
+            <p class="text-muted leading-relaxed">
+              A palette inspired by golden hour — cream, amber, and terracotta
+              tones that feel inviting and timeless.
+            </p>
+          </div>
+          <div class="bg-cream/80 rounded-lg p-8 border border-amber/10">
+            <div class="w-10 h-10 rounded-full bg-amber/20 flex items-center justify-center mb-5">
+              <span class="text-amber text-lg">&#9733;</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-3 text-charcoal">Editorial Voice</h3>
+            <p class="text-muted leading-relaxed">
+              Words chosen with care, typography that demands attention, and
+              stories worth telling. Content elevated to craft.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pull Quote -->
+    <section class="py-24 px-6">
+      <div class="max-w-3xl mx-auto text-center relative">
+        <span class="font-display text-amber/30 text-[8rem] leading-none absolute -top-10 left-1/2 -translate-x-1/2 select-none" aria-hidden="true">&ldquo;</span>
+        <blockquote class="font-display italic text-2xl md:text-3xl text-charcoal leading-snug relative z-10">
+          The details are not the details. They make the design.
+        </blockquote>
+        <cite class="block mt-6 text-muted font-body text-base not-italic">
+          &mdash; Charles Eames
+        </cite>
+      </div>
+    </section>
+
+    <!-- Signup -->
+    <section id="signup" class="py-24 px-6 bg-surface/50">
+      <div class="max-w-md mx-auto text-center flex flex-col items-center gap-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-charcoal">Join the inner circle</h2>
+        <p class="text-muted font-body">Be the first to experience Ember. No spam, just substance.</p>
+        <SignupForm campaign="landing-a" apiUrl={apiUrl} />
+      </div>
     </section>
   </main>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 text-center border-t border-amber/20">
+    <p class="text-muted text-sm font-body">&copy; 2026 Ember. Crafted with intention.</p>
+  </footer>
 </Layout>
-
-<style>
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    text-align: center;
-    gap: 1.5rem;
-    padding: 2rem;
-  }
-
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-  }
-
-  p {
-    font-size: 1.25rem;
-    color: #6b7280;
-    max-width: 40ch;
-  }
-
-  .signup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 4rem 2rem;
-    gap: 1.5rem;
-  }
-
-  .signup h2 {
-    font-size: 2rem;
-    font-weight: 700;
-  }
-</style>
