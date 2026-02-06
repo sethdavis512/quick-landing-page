@@ -1,0 +1,135 @@
+---
+interface Props {
+  campaign: string;
+  apiUrl: string;
+}
+
+const { campaign, apiUrl } = Astro.props;
+---
+
+<form class="signup-form" data-api-url={apiUrl}>
+  <input type="hidden" name="campaign" value={campaign} />
+  <div class="signup-form__fields">
+    <input
+      type="text"
+      name="name"
+      placeholder="Name (optional)"
+      class="signup-form__input"
+    />
+    <input
+      type="email"
+      name="email"
+      placeholder="Email address"
+      required
+      class="signup-form__input"
+    />
+    <button type="submit" class="signup-form__button">Sign Up</button>
+  </div>
+  <p class="signup-form__message" aria-live="polite"></p>
+</form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>(".signup-form").forEach(function (form) {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const apiUrl = form.dataset.apiUrl;
+      const formData = new FormData(form);
+      const message = form.querySelector<HTMLParagraphElement>(".signup-form__message")!;
+      const button = form.querySelector<HTMLButtonElement>(".signup-form__button")!;
+
+      button.disabled = true;
+      message.textContent = "";
+      message.className = "signup-form__message";
+
+      try {
+        const res = await fetch(`${apiUrl}/signups`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: formData.get("email"),
+            campaign: formData.get("campaign"),
+            name: formData.get("name") || undefined,
+          }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          message.textContent = "You're signed up!";
+          message.classList.add("signup-form__message--success");
+          form.reset();
+        } else {
+          message.textContent = data.error || "Something went wrong.";
+          message.classList.add("signup-form__message--error");
+        }
+      } catch {
+        message.textContent = "Network error. Please try again.";
+        message.classList.add("signup-form__message--error");
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+</script>
+
+<style>
+  .signup-form {
+    width: 100%;
+    max-width: 28rem;
+  }
+
+  .signup-form__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .signup-form__input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .signup-form__input:focus {
+    border-color: #6d28d9;
+  }
+
+  .signup-form__button {
+    padding: 0.75rem 1.5rem;
+    background-color: #6d28d9;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .signup-form__button:hover {
+    opacity: 0.85;
+  }
+
+  .signup-form__button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .signup-form__message {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    min-height: 1.25rem;
+  }
+
+  .signup-form__message--success {
+    color: #059669;
+  }
+
+  .signup-form__message--error {
+    color: #dc2626;
+  }
+</style>

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "env": ["LANDING_A_*"]
+    },
+    "dev": {
+      "env": ["LANDING_A_*"]
+    }
+  }
+}

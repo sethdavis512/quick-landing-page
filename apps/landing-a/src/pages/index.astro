@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Button, SignupForm } from "@quick-landing-page/ui";
+import { siteConfig } from "@quick-landing-page/shared-config";
+
+const apiUrl = import.meta.env.PUBLIC_API_URL;
+---
+
+<Layout title="Landing A">
+  <main>
+    <section class="hero">
+      <h1>Landing A</h1>
+      <p>{siteConfig.description}</p>
+      <Button href="#cta">Get Started</Button>
+    </section>
+    <section id="cta" class="signup">
+      <h2>Stay in the loop</h2>
+      <SignupForm campaign="landing-a" apiUrl={apiUrl} />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: #6b7280;
+    max-width: 40ch;
+  }
+
+  .signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .signup h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+</style>
