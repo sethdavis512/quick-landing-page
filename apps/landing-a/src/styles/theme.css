@@ -1,5 +1,7 @@
 @import "@quick-landing-page/tailwind-config/base.css";
 
+@source "../../../../packages/ui/src/**/*.astro";
+
 @theme {
   --color-cream: #faf3e8;
   --color-charcoal: #1a1a2e;
