@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { serve } from "@hono/node-server";
 import sql, { initDb } from "./db.js";
+import { signupSchema } from "@quick-landing-page/shared-config";
 
 const app = new Hono();
 
@@ -22,14 +23,14 @@ app.get("/signups", async function (c) {
 
 app.post("/signups", async function (c) {
   const body = await c.req.json();
-  const { email, campaign, name } = body;
+  const parsed = signupSchema.safeParse(body);
 
-  if (!email || typeof email !== "string") {
-    return c.json({ error: "email is required" }, 400);
+  if (!parsed.success) {
+    const firstError = parsed.error.errors[0];
+    return c.json({ error: firstError.message }, 400);
   }
-  if (!campaign || typeof campaign !== "string") {
-    return c.json({ error: "campaign is required" }, 400);
-  }
+
+  const { email, campaign, name } = parsed.data;
 
   try {
     const [row] = await sql`

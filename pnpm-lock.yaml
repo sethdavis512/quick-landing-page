@@ -20,6 +20,9 @@ importers:
       '@inquirer/prompts':
         specifier: ^7
         version: 7.10.1(@types/node@22.19.9)
+      '@quick-landing-page/shared-config':
+        specifier: workspace:*
+        version: link:../../packages/shared-config
       hono:
         specifier: ^4
         version: 4.11.8
@@ -67,7 +70,11 @@ importers:
         specifier: ^5
         version: 5.17.1(typescript@5.9.3)
 
-  packages/shared-config: {}
+  packages/shared-config:
+    dependencies:
+      zod:
+        specifier: ^3
+        version: 3.25.76
 
   packages/tailwind-config:
     dependencies:
@@ -78,7 +85,11 @@ importers:
         specifier: ^4
         version: 4.1.18
 
-  packages/ui: {}
+  packages/ui:
+    dependencies:
+      '@quick-landing-page/shared-config':
+        specifier: workspace:*
+        version: link:../shared-config
 
 packages:
 

@@ -13,6 +13,7 @@
     "hono": "^4",
     "@hono/node-server": "^1",
     "@inquirer/prompts": "^7",
+    "@quick-landing-page/shared-config": "workspace:*",
     "postgres": "^3"
   },
   "devDependencies": {
