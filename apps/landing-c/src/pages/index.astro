@@ -28,130 +28,15 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
     <!-- ============ HERO ============ -->
     <section class="relative min-h-screen flex flex-col overflow-hidden">
 
-      <!-- CSS architectural illustration -->
-      <div class="absolute inset-0 hero-scene" aria-hidden="true">
-        <!-- Sky gradient -->
-        <div class="absolute inset-0" style="background: linear-gradient(180deg, #dde8e0 0%, #c8dbd0 30%, #b8cfc3 60%, #a5c0b2 100%);"></div>
-
-        <!-- Distant tree line -->
-        <div class="absolute bottom-0 left-0 right-0 h-1/3" style="background: linear-gradient(to top, #0f2218 0%, #1b3a2d 40%, transparent 100%); opacity: 0.18;"></div>
-
-        <!-- Ground -->
-        <div class="absolute bottom-0 left-0 right-0 h-24" style="background: linear-gradient(180deg, #2d5a3d 0%, #1e4030 100%);"></div>
-        <div class="absolute bottom-24 left-0 right-0 h-8" style="background: linear-gradient(180deg, #4a7c5c 0%, #2d5a3d 100%); clip-path: polygon(0 60%, 3% 40%, 6% 55%, 9% 35%, 12% 50%, 15% 30%, 18% 50%, 21% 38%, 24% 55%, 27% 40%, 30% 58%, 33% 42%, 36% 52%, 39% 35%, 42% 50%, 45% 40%, 48% 55%, 51% 38%, 54% 52%, 57% 40%, 60% 55%, 63% 38%, 66% 50%, 69% 42%, 72% 58%, 75% 40%, 78% 52%, 81% 38%, 84% 50%, 87% 40%, 90% 55%, 93% 38%, 96% 52%, 100% 45%, 100% 100%, 0 100%);"></div>
-
-        <!-- House main body -->
-        <div class="absolute house-container" style="bottom: 88px; left: 50%; transform: translateX(-50%); width: min(560px, 85vw);">
-
-          <!-- Main roof -->
-          <div style="width: 100%; height: 0; border-left: 280px solid transparent; border-right: 280px solid transparent; border-bottom: 130px solid #1b3a2d; position: absolute; top: -130px; left: 0;"></div>
-          <!-- Roof ridge highlight -->
-          <div style="width: 96%; height: 0; border-left: 268px solid transparent; border-right: 268px solid transparent; border-bottom: 128px solid #254d3c; position: absolute; top: -128px; left: 2%;"></div>
-
-          <!-- Left dormer -->
-          <div style="position: absolute; top: -200px; left: 20%; width: 80px;">
-            <div style="width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 36px solid #1b3a2d; position: absolute; top: 0; left: 0;"></div>
-            <div style="position: absolute; top: 36px; left: 0; width: 80px; height: 44px; background: #1b3a2d;"></div>
-            <div style="position: absolute; top: 44px; left: 16px; width: 48px; height: 36px; background: #7fa08a; border: 2px solid #4d7a60; opacity: 0.7;"></div>
-          </div>
-
-          <!-- Right dormer -->
-          <div style="position: absolute; top: -200px; right: 20%; width: 80px;">
-            <div style="width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 36px solid #1b3a2d; position: absolute; top: 0; left: 0;"></div>
-            <div style="position: absolute; top: 36px; left: 0; width: 80px; height: 44px; background: #1b3a2d;"></div>
-            <div style="position: absolute; top: 44px; left: 16px; width: 48px; height: 36px; background: #7fa08a; border: 2px solid #4d7a60; opacity: 0.7;"></div>
-          </div>
-
-          <!-- House facade -->
-          <div style="width: 100%; height: 220px; background: linear-gradient(180deg, #f0e8d8 0%, #e8dcc8 100%); position: relative; border: 2px solid #c8b898;">
-
-            <!-- Stone texture overlay -->
-            <div style="position: absolute; inset: 0; opacity: 0.06; background-image: repeating-linear-gradient(0deg, transparent, transparent 18px, rgba(0,0,0,0.3) 18px, rgba(0,0,0,0.3) 20px), repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(0,0,0,0.2) 38px, rgba(0,0,0,0.2) 40px);"></div>
-
-            <!-- Front door -->
-            <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 64px; height: 110px; background: linear-gradient(180deg, #1b3a2d 0%, #0f2218 100%); border-radius: 32px 32px 0 0; border: 2px solid #0f2218;">
-              <div style="position: absolute; top: 8px; left: 8px; right: 8px; height: 50px; background: rgba(255,255,255,0.08); border-radius: 24px 24px 0 0;"></div>
-              <div style="position: absolute; top: 68px; right: 10px; width: 6px; height: 6px; border-radius: 50%; background: #b8933e;"></div>
-            </div>
-
-            <!-- Portico / porch columns -->
-            <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 140px; height: 130px;">
-              <!-- Porch header -->
-              <div style="position: absolute; top: 0; left: 0; right: 0; height: 14px; background: linear-gradient(180deg, #d4c9b0 0%, #c8b898 100%); border: 1px solid #b8a880;"></div>
-              <!-- Left column -->
-              <div style="position: absolute; top: 14px; left: 14px; width: 12px; bottom: 0; background: linear-gradient(90deg, #e8dcc8, #f0e8d8, #e0d4ba); border: 1px solid #c8b898;"></div>
-              <!-- Right column -->
-              <div style="position: absolute; top: 14px; right: 14px; width: 12px; bottom: 0; background: linear-gradient(90deg, #e0d4ba, #f0e8d8, #e8dcc8); border: 1px solid #c8b898;"></div>
-            </div>
-
-            <!-- Left window set -->
-            <div style="position: absolute; top: 36px; left: 12%; display: flex; gap: 12px;">
-              <div style="width: 56px; height: 76px; background: linear-gradient(135deg, #8fb5a0 0%, #6a9a82 50%, #7fa08a 100%); border: 2px solid #4a7a5c; border-radius: 28px 28px 0 0; position: relative; overflow: hidden;">
-                <div style="position: absolute; top: 4px; left: 50%; transform: translateX(-50%); width: 1px; height: 90%; background: rgba(255,255,255,0.3);"></div>
-                <div style="position: absolute; top: 50%; left: 4px; right: 4px; height: 1px; background: rgba(255,255,255,0.3);"></div>
-                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);"></div>
-              </div>
-              <div style="width: 56px; height: 76px; background: linear-gradient(135deg, #8fb5a0 0%, #6a9a82 50%, #7fa08a 100%); border: 2px solid #4a7a5c; border-radius: 28px 28px 0 0; position: relative; overflow: hidden;">
-                <div style="position: absolute; top: 4px; left: 50%; transform: translateX(-50%); width: 1px; height: 90%; background: rgba(255,255,255,0.3);"></div>
-                <div style="position: absolute; top: 50%; left: 4px; right: 4px; height: 1px; background: rgba(255,255,255,0.3);"></div>
-                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);"></div>
-              </div>
-            </div>
-
-            <!-- Right window set -->
-            <div style="position: absolute; top: 36px; right: 12%; display: flex; gap: 12px;">
-              <div style="width: 56px; height: 76px; background: linear-gradient(135deg, #8fb5a0 0%, #6a9a82 50%, #7fa08a 100%); border: 2px solid #4a7a5c; border-radius: 28px 28px 0 0; position: relative; overflow: hidden;">
-                <div style="position: absolute; top: 4px; left: 50%; transform: translateX(-50%); width: 1px; height: 90%; background: rgba(255,255,255,0.3);"></div>
-                <div style="position: absolute; top: 50%; left: 4px; right: 4px; height: 1px; background: rgba(255,255,255,0.3);"></div>
-                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);"></div>
-              </div>
-              <div style="width: 56px; height: 76px; background: linear-gradient(135deg, #8fb5a0 0%, #6a9a82 50%, #7fa08a 100%); border: 2px solid #4a7a5c; border-radius: 28px 28px 0 0; position: relative; overflow: hidden;">
-                <div style="position: absolute; top: 4px; left: 50%; transform: translateX(-50%); width: 1px; height: 90%; background: rgba(255,255,255,0.3);"></div>
-                <div style="position: absolute; top: 50%; left: 4px; right: 4px; height: 1px; background: rgba(255,255,255,0.3);"></div>
-                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Garage wings (left) -->
-          <div style="position: absolute; bottom: 0; right: calc(100% - 4px); width: 140px; height: 150px; background: linear-gradient(180deg, #e8dcc8 0%, #ddd0b8 100%); border: 2px solid #c8b898; border-right: none;">
-            <!-- Garage door -->
-            <div style="position: absolute; bottom: 0; left: 10px; right: 10px; height: 100px; background: linear-gradient(180deg, #d0c4aa 0%, #c4b898 100%); border: 2px solid #b8a880; border-bottom: none;">
-              <div style="height: 14px; border-bottom: 1px solid #b8a880;"></div>
-              <div style="height: 14px; border-bottom: 1px solid #b8a880;"></div>
-              <div style="height: 14px; border-bottom: 1px solid #b8a880;"></div>
-              <div style="height: 14px; border-bottom: 1px solid #b8a880;"></div>
-            </div>
-            <!-- Small roof -->
-            <div style="position: absolute; top: -50px; left: -4px; right: -4px; height: 0; border-left: 74px solid transparent; border-right: 74px solid transparent; border-bottom: 54px solid #1b3a2d;"></div>
-          </div>
-
-          <!-- Porch wrap continuation (right) -->
-          <div style="position: absolute; bottom: 0; right: -60px; width: 64px; height: 42px; background: linear-gradient(90deg, #e8dcc8, #ddd0b8); border-top: 2px solid #c8b898; border-right: 2px solid #c8b898;"></div>
-
-        </div>
-
-        <!-- Left oak tree -->
-        <div class="oak-tree" style="position: absolute; bottom: 80px; left: 8%;" aria-hidden="true">
-          <div style="width: 14px; height: 120px; background: linear-gradient(90deg, #3d2b1a, #5a3d25, #3d2b1a); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
-          <div style="width: 110px; height: 110px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #2d5a3d, #1b3a2d); position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%);"></div>
-          <div style="width: 80px; height: 80px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #4a7c5c, #2d5a3d); position: absolute; bottom: 110px; left: 55%; transform: translateX(-50%);"></div>
-          <div style="width: 70px; height: 70px; border-radius: 50%; background: radial-gradient(circle at 60% 60%, #3d6b4d, #254d3c); position: absolute; bottom: 90px; right: 0%; transform: translateX(-50%);"></div>
-        </div>
-
-        <!-- Right oak tree -->
-        <div class="oak-tree" style="position: absolute; bottom: 80px; right: 6%;" aria-hidden="true">
-          <div style="width: 16px; height: 150px; background: linear-gradient(90deg, #3d2b1a, #5a3d25, #3d2b1a); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
-          <div style="width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #2d5a3d, #1b3a2d); position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);"></div>
-          <div style="width: 100px; height: 100px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #4a7c5c, #2d5a3d); position: absolute; bottom: 140px; left: 55%; transform: translateX(-50%);"></div>
-          <div style="width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle at 60% 60%, #3d6b4d, #254d3c); position: absolute; bottom: 120px; right: -10%; transform: translateX(-50%);"></div>
-        </div>
-
-        <!-- Walkway path -->
-        <div style="position: absolute; bottom: 86px; left: 50%; transform: translateX(-50%); width: 60px; height: 92px; background: linear-gradient(180deg, #c8b898 0%, #b8a880 100%); clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);"></div>
-
-        <!-- Overlay gradient for hero content readability -->
-        <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(27,58,45,0.05) 0%, rgba(27,58,45,0.0) 40%, rgba(15,34,24,0.72) 100%);"></div>
+      <!-- Hero photo -->
+      <div class="absolute inset-0" aria-hidden="true">
+        <img
+          src="https://res.cloudinary.com/setholito/image/upload/w_1920,h_1080,c_fill,g_auto,q_auto,f_auto/v1769288780/replicate-generated/realtor-1769288780108.jpg"
+          alt="Ashwood Estate exterior"
+          class="w-full h-full object-cover object-center"
+        />
+        <!-- Gradient overlay for content readability -->
+        <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(15,34,24,0.2) 0%, rgba(15,34,24,0.05) 40%, rgba(15,34,24,0.78) 100%);"></div>
       </div>
 
       <!-- Hero content overlay -->
