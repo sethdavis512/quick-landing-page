@@ -1,0 +1,764 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Button, SignupForm } from "@quick-landing-page/ui";
+
+const apiUrl = import.meta.env.PUBLIC_API_URL;
+---
+
+<Layout title="Ashwood Estate — 142 Maple Grove Lane" description="A stunning 4-bedroom luxury home at 142 Maple Grove Lane. $1,285,000. Schedule your private tour today.">
+
+  <!-- ============ NAV ============ -->
+  <nav class="sticky top-0 z-50 bg-ivory/90 backdrop-blur-sm border-b border-border">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex flex-col leading-none">
+        <span class="font-display text-xl font-semibold tracking-wide text-forest">Ashwood Estate</span>
+        <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-brass mt-0.5">142 Maple Grove Lane</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#exterior" class="hidden md:block text-sm font-body font-medium text-slate hover:text-forest transition-colors">Exterior</a>
+        <a href="#interior" class="hidden md:block text-sm font-body font-medium text-slate hover:text-forest transition-colors">Interior</a>
+        <a href="#neighborhood" class="hidden md:block text-sm font-body font-medium text-slate hover:text-forest transition-colors">Neighborhood</a>
+        <Button href="#tour">Schedule a Tour</Button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="relative min-h-screen flex flex-col overflow-hidden">
+
+      <!-- CSS architectural illustration -->
+      <div class="absolute inset-0 hero-scene" aria-hidden="true">
+        <!-- Sky gradient -->
+        <div class="absolute inset-0" style="background: linear-gradient(180deg, #dde8e0 0%, #c8dbd0 30%, #b8cfc3 60%, #a5c0b2 100%);"></div>
+
+        <!-- Distant tree line -->
+        <div class="absolute bottom-0 left-0 right-0 h-1/3" style="background: linear-gradient(to top, #0f2218 0%, #1b3a2d 40%, transparent 100%); opacity: 0.18;"></div>
+
+        <!-- Ground -->
+        <div class="absolute bottom-0 left-0 right-0 h-24" style="background: linear-gradient(180deg, #2d5a3d 0%, #1e4030 100%);"></div>
+        <div class="absolute bottom-24 left-0 right-0 h-8" style="background: linear-gradient(180deg, #4a7c5c 0%, #2d5a3d 100%); clip-path: polygon(0 60%, 3% 40%, 6% 55%, 9% 35%, 12% 50%, 15% 30%, 18% 50%, 21% 38%, 24% 55%, 27% 40%, 30% 58%, 33% 42%, 36% 52%, 39% 35%, 42% 50%, 45% 40%, 48% 55%, 51% 38%, 54% 52%, 57% 40%, 60% 55%, 63% 38%, 66% 50%, 69% 42%, 72% 58%, 75% 40%, 78% 52%, 81% 38%, 84% 50%, 87% 40%, 90% 55%, 93% 38%, 96% 52%, 100% 45%, 100% 100%, 0 100%);"></div>
+
+        <!-- House main body -->
+        <div class="absolute house-container" style="bottom: 88px; left: 50%; transform: translateX(-50%); width: min(560px, 85vw);">
+
+          <!-- Main roof -->
+          <div style="width: 100%; height: 0; border-left: 280px solid transparent; border-right: 280px solid transparent; border-bottom: 130px solid #1b3a2d; position: absolute; top: -130px; left: 0;"></div>
+          <!-- Roof ridge highlight -->
+          <div style="width: 96%; height: 0; border-left: 268px solid transparent; border-right: 268px solid transparent; border-bottom: 128px solid #254d3c; position: absolute; top: -128px; left: 2%;"></div>
+
+          <!-- Left dormer -->
+          <div style="position: absolute; top: -200px; left: 20%; width: 80px;">
+            <div style="width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 36px solid #1b3a2d; position: absolute; top: 0; left: 0;"></div>
+            <div style="position: absolute; top: 36px; left: 0; width: 80px; height: 44px; background: #1b3a2d;"></div>
+            <div style="position: absolute; top: 44px; left: 16px; width: 48px; height: 36px; background: #7fa08a; border: 2px solid #4d7a60; opacity: 0.7;"></div>
+          </div>
+
+          <!-- Right dormer -->
+          <div style="position: absolute; top: -200px; right: 20%; width: 80px;">
+            <div style="width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 36px solid #1b3a2d; position: absolute; top: 0; left: 0;"></div>
+            <div style="position: absolute; top: 36px; left: 0; width: 80px; height: 44px; background: #1b3a2d;"></div>
+            <div style="position: absolute; top: 44px; left: 16px; width: 48px; height: 36px; background: #7fa08a; border: 2px solid #4d7a60; opacity: 0.7;"></div>
+          </div>
+
+          <!-- House facade -->
+          <div style="width: 100%; height: 220px; background: linear-gradient(180deg, #f0e8d8 0%, #e8dcc8 100%); position: relative; border: 2px solid #c8b898;">
+
+            <!-- Stone texture overlay -->
+            <div style="position: absolute; inset: 0; opacity: 0.06; background-image: repeating-linear-gradient(0deg, transparent, transparent 18px, rgba(0,0,0,0.3) 18px, rgba(0,0,0,0.3) 20px), repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(0,0,0,0.2) 38px, rgba(0,0,0,0.2) 40px);"></div>
+
+            <!-- Front door -->
+            <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 64px; height: 110px; background: linear-gradient(180deg, #1b3a2d 0%, #0f2218 100%); border-radius: 32px 32px 0 0; border: 2px solid #0f2218;">
+              <div style="position: absolute; top: 8px; left: 8px; right: 8px; height: 50px; background: rgba(255,255,255,0.08); border-radius: 24px 24px 0 0;"></div>
+              <div style="position: absolute; top: 68px; right: 10px; width: 6px; height: 6px; border-radius: 50%; background: #b8933e;"></div>
+            </div>
+
+            <!-- Portico / porch columns -->
+            <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 140px; height: 130px;">
+              <!-- Porch header -->
+              <div style="position: absolute; top: 0; left: 0; right: 0; height: 14px; background: linear-gradient(180deg, #d4c9b0 0%, #c8b898 100%); border: 1px solid #b8a880;"></div>
+              <!-- Left column -->
+              <div style="position: absolute; top: 14px; left: 14px; width: 12px; bottom: 0; background: linear-gradient(90deg, #e8dcc8, #f0e8d8, #e0d4ba); border: 1px solid #c8b898;"></div>
+              <!-- Right column -->
+              <div style="position: absolute; top: 14px; right: 14px; width: 12px; bottom: 0; background: linear-gradient(90deg, #e0d4ba, #f0e8d8, #e8dcc8); border: 1px solid #c8b898;"></div>
+            </div>
+
+            <!-- Left window set -->
+            <div style="position: absolute; top: 36px; left: 12%; display: flex; gap: 12px;">
+              <div style="width: 56px; height: 76px; background: linear-gradient(135deg, #8fb5a0 0%, #6a9a82 50%, #7fa08a 100%); border: 2px solid #4a7a5c; border-radius: 28px 28px 0 0; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 4px; left: 50%; transform: translateX(-50%); width: 1px; height: 90%; background: rgba(255,255,255,0.3);"></div>
+                <div style="position: absolute; top: 50%; left: 4px; right: 4px; height: 1px; background: rgba(255,255,255,0.3);"></div>
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);"></div>
+              </div>
+              <div style="width: 56px; height: 76px; background: linear-gradient(135deg, #8fb5a0 0%, #6a9a82 50%, #7fa08a 100%); border: 2px solid #4a7a5c; border-radius: 28px 28px 0 0; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 4px; left: 50%; transform: translateX(-50%); width: 1px; height: 90%; background: rgba(255,255,255,0.3);"></div>
+                <div style="position: absolute; top: 50%; left: 4px; right: 4px; height: 1px; background: rgba(255,255,255,0.3);"></div>
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);"></div>
+              </div>
+            </div>
+
+            <!-- Right window set -->
+            <div style="position: absolute; top: 36px; right: 12%; display: flex; gap: 12px;">
+              <div style="width: 56px; height: 76px; background: linear-gradient(135deg, #8fb5a0 0%, #6a9a82 50%, #7fa08a 100%); border: 2px solid #4a7a5c; border-radius: 28px 28px 0 0; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 4px; left: 50%; transform: translateX(-50%); width: 1px; height: 90%; background: rgba(255,255,255,0.3);"></div>
+                <div style="position: absolute; top: 50%; left: 4px; right: 4px; height: 1px; background: rgba(255,255,255,0.3);"></div>
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);"></div>
+              </div>
+              <div style="width: 56px; height: 76px; background: linear-gradient(135deg, #8fb5a0 0%, #6a9a82 50%, #7fa08a 100%); border: 2px solid #4a7a5c; border-radius: 28px 28px 0 0; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 4px; left: 50%; transform: translateX(-50%); width: 1px; height: 90%; background: rgba(255,255,255,0.3);"></div>
+                <div style="position: absolute; top: 50%; left: 4px; right: 4px; height: 1px; background: rgba(255,255,255,0.3);"></div>
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Garage wings (left) -->
+          <div style="position: absolute; bottom: 0; right: calc(100% - 4px); width: 140px; height: 150px; background: linear-gradient(180deg, #e8dcc8 0%, #ddd0b8 100%); border: 2px solid #c8b898; border-right: none;">
+            <!-- Garage door -->
+            <div style="position: absolute; bottom: 0; left: 10px; right: 10px; height: 100px; background: linear-gradient(180deg, #d0c4aa 0%, #c4b898 100%); border: 2px solid #b8a880; border-bottom: none;">
+              <div style="height: 14px; border-bottom: 1px solid #b8a880;"></div>
+              <div style="height: 14px; border-bottom: 1px solid #b8a880;"></div>
+              <div style="height: 14px; border-bottom: 1px solid #b8a880;"></div>
+              <div style="height: 14px; border-bottom: 1px solid #b8a880;"></div>
+            </div>
+            <!-- Small roof -->
+            <div style="position: absolute; top: -50px; left: -4px; right: -4px; height: 0; border-left: 74px solid transparent; border-right: 74px solid transparent; border-bottom: 54px solid #1b3a2d;"></div>
+          </div>
+
+          <!-- Porch wrap continuation (right) -->
+          <div style="position: absolute; bottom: 0; right: -60px; width: 64px; height: 42px; background: linear-gradient(90deg, #e8dcc8, #ddd0b8); border-top: 2px solid #c8b898; border-right: 2px solid #c8b898;"></div>
+
+        </div>
+
+        <!-- Left oak tree -->
+        <div class="oak-tree" style="position: absolute; bottom: 80px; left: 8%;" aria-hidden="true">
+          <div style="width: 14px; height: 120px; background: linear-gradient(90deg, #3d2b1a, #5a3d25, #3d2b1a); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+          <div style="width: 110px; height: 110px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #2d5a3d, #1b3a2d); position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%);"></div>
+          <div style="width: 80px; height: 80px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #4a7c5c, #2d5a3d); position: absolute; bottom: 110px; left: 55%; transform: translateX(-50%);"></div>
+          <div style="width: 70px; height: 70px; border-radius: 50%; background: radial-gradient(circle at 60% 60%, #3d6b4d, #254d3c); position: absolute; bottom: 90px; right: 0%; transform: translateX(-50%);"></div>
+        </div>
+
+        <!-- Right oak tree -->
+        <div class="oak-tree" style="position: absolute; bottom: 80px; right: 6%;" aria-hidden="true">
+          <div style="width: 16px; height: 150px; background: linear-gradient(90deg, #3d2b1a, #5a3d25, #3d2b1a); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+          <div style="width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #2d5a3d, #1b3a2d); position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);"></div>
+          <div style="width: 100px; height: 100px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #4a7c5c, #2d5a3d); position: absolute; bottom: 140px; left: 55%; transform: translateX(-50%);"></div>
+          <div style="width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle at 60% 60%, #3d6b4d, #254d3c); position: absolute; bottom: 120px; right: -10%; transform: translateX(-50%);"></div>
+        </div>
+
+        <!-- Walkway path -->
+        <div style="position: absolute; bottom: 86px; left: 50%; transform: translateX(-50%); width: 60px; height: 92px; background: linear-gradient(180deg, #c8b898 0%, #b8a880 100%); clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);"></div>
+
+        <!-- Overlay gradient for hero content readability -->
+        <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(27,58,45,0.05) 0%, rgba(27,58,45,0.0) 40%, rgba(15,34,24,0.72) 100%);"></div>
+      </div>
+
+      <!-- Hero content overlay -->
+      <div class="relative z-10 mt-auto pb-16 px-6">
+        <div class="max-w-7xl mx-auto">
+          <div class="max-w-2xl">
+            <p class="font-mono text-xs tracking-[0.25em] uppercase text-brass-light mb-4 animate-fade-up">
+              Exclusively Listed
+            </p>
+            <h1 class="font-display font-light text-ivory leading-none mb-4 animate-fade-up delay-1" style="font-size: clamp(3.5rem, 8vw, 6.5rem); letter-spacing: -0.02em;">
+              Ashwood<br /><em style="font-style: italic; font-weight: 300;">Estate</em>
+            </h1>
+            <p class="font-body text-ivory/70 text-lg mb-8 animate-fade-up delay-2">
+              142 Maple Grove Lane &nbsp;&middot;&nbsp; Ashwood, CA 94301
+            </p>
+
+            <!-- Key stats bar -->
+            <div class="flex flex-wrap gap-6 mb-10 animate-fade-up delay-3">
+              <div class="flex flex-col">
+                <span class="font-display text-3xl font-semibold text-ivory" style="letter-spacing: -0.02em;">$1,285,000</span>
+                <span class="font-mono text-[10px] tracking-widest uppercase text-brass-light mt-0.5">List Price</span>
+              </div>
+              <div class="w-px bg-ivory/20 self-stretch"></div>
+              <div class="flex flex-col">
+                <span class="font-display text-3xl font-semibold text-ivory">4</span>
+                <span class="font-mono text-[10px] tracking-widest uppercase text-brass-light mt-0.5">Bedrooms</span>
+              </div>
+              <div class="w-px bg-ivory/20 self-stretch"></div>
+              <div class="flex flex-col">
+                <span class="font-display text-3xl font-semibold text-ivory">3</span>
+                <span class="font-mono text-[10px] tracking-widest uppercase text-brass-light mt-0.5">Bathrooms</span>
+              </div>
+              <div class="w-px bg-ivory/20 self-stretch"></div>
+              <div class="flex flex-col">
+                <span class="font-display text-3xl font-semibold text-ivory">2,840</span>
+                <span class="font-mono text-[10px] tracking-widest uppercase text-brass-light mt-0.5">Sq Ft</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-4 animate-fade-up delay-4">
+              <a
+                href="#tour"
+                class="inline-flex items-center gap-2 px-8 py-3.5 bg-brass text-ivory font-body font-semibold text-sm tracking-wide rounded-sm transition-all hover:bg-brass-light hover:shadow-lg"
+              >
+                Schedule a Tour
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7H13M13 7L7.5 1.5M13 7L7.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a
+                href="#exterior"
+                class="inline-flex items-center gap-2 px-8 py-3.5 border border-ivory/40 text-ivory font-body font-medium text-sm tracking-wide rounded-sm transition-all hover:bg-ivory/10"
+              >
+                View Property
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="absolute bottom-6 right-8 z-10 flex flex-col items-center gap-2 opacity-60">
+        <span class="font-mono text-[9px] tracking-[0.3em] uppercase text-ivory rotate-90 origin-center mb-1">Scroll</span>
+        <div style="width: 1px; height: 48px; background: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);"></div>
+      </div>
+    </section>
+
+    <!-- ============ INTRO BAND ============ -->
+    <section class="bg-forest py-10 px-6">
+      <div class="max-w-7xl mx-auto flex flex-wrap gap-8 items-center justify-between">
+        <p class="font-display italic text-ivory/80 text-xl md:text-2xl font-light max-w-xl">
+          "Where timeless craftsmanship meets contemporary comfort — a rare opportunity in one of Ashwood's most sought-after streets."
+        </p>
+        <div class="flex gap-8">
+          <div class="text-center">
+            <div class="font-display text-3xl font-semibold text-brass-light">2018</div>
+            <div class="font-mono text-[10px] tracking-widest uppercase text-ivory/50 mt-1">Built</div>
+          </div>
+          <div class="text-center">
+            <div class="font-display text-3xl font-semibold text-brass-light">0.42</div>
+            <div class="font-mono text-[10px] tracking-widest uppercase text-ivory/50 mt-1">Acres</div>
+          </div>
+          <div class="text-center">
+            <div class="font-display text-3xl font-semibold text-brass-light">9/10</div>
+            <div class="font-mono text-[10px] tracking-widest uppercase text-ivory/50 mt-1">Schools</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXTERIOR HIGHLIGHTS ============ -->
+    <section id="exterior" class="py-24 px-6 bg-surface">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Section header -->
+        <div class="flex items-end justify-between mb-16 border-b border-border pb-8">
+          <div>
+            <p class="font-mono text-[11px] tracking-[0.25em] uppercase text-brass mb-3">01 — Exterior</p>
+            <h2 class="font-display text-4xl md:text-5xl font-light text-forest leading-tight" style="letter-spacing: -0.02em;">
+              Curb Appeal<br /><em>& Grounds</em>
+            </h2>
+          </div>
+          <p class="hidden md:block font-body text-slate-light text-sm max-w-xs text-right leading-relaxed">
+            Every detail of the exterior has been curated to create a commanding, welcoming presence from the moment you arrive.
+          </p>
+        </div>
+
+        <!-- Feature grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div class="exterior-card group bg-ivory border border-border rounded-sm p-8 hover:shadow-xl hover:border-brass/30 transition-all duration-300 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-forest opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="w-12 h-12 rounded-sm bg-forest/8 flex items-center justify-center mb-6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b3a2d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-forest mb-3">Wrap-Around Porch</h3>
+            <p class="font-body text-slate text-sm leading-relaxed">
+              Classic full wrap-around porch with cedar decking, built-in seating, and ceiling fans — perfect for morning coffee or evening entertaining.
+            </p>
+          </div>
+
+          <div class="exterior-card group bg-ivory border border-border rounded-sm p-8 hover:shadow-xl hover:border-brass/30 transition-all duration-300 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-forest opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="w-12 h-12 rounded-sm bg-forest/8 flex items-center justify-center mb-6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b3a2d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-forest mb-3">Mature Oak Trees</h3>
+            <p class="font-body text-slate text-sm leading-relaxed">
+              A canopy of established 40-year-old oak trees provides natural shade, privacy, and irreplaceable character to the property.
+            </p>
+          </div>
+
+          <div class="exterior-card group bg-ivory border border-border rounded-sm p-8 hover:shadow-xl hover:border-brass/30 transition-all duration-300 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-brass opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="w-12 h-12 rounded-sm bg-brass/10 flex items-center justify-center mb-6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b8933e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-forest mb-3">2-Car Attached Garage</h3>
+            <p class="font-body text-slate text-sm leading-relaxed">
+              Spacious 2-car garage with epoxy floors, built-in storage shelving, and direct access to the mudroom and kitchen.
+            </p>
+          </div>
+
+          <div class="exterior-card group bg-ivory border border-border rounded-sm p-8 hover:shadow-xl hover:border-brass/30 transition-all duration-300 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-forest opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="w-12 h-12 rounded-sm bg-forest/8 flex items-center justify-center mb-6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b3a2d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12C2 6.48 6.48 2 12 2z"/><path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-forest mb-3">Pro Landscaping</h3>
+            <p class="font-body text-slate text-sm leading-relaxed">
+              Award-winning landscape design with seasonal perennials, illuminated stone pathways, and an automatic irrigation system.
+            </p>
+          </div>
+
+          <div class="exterior-card group bg-ivory border border-border rounded-sm p-8 hover:shadow-xl hover:border-brass/30 transition-all duration-300 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-forest opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="w-12 h-12 rounded-sm bg-forest/8 flex items-center justify-center mb-6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b3a2d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-forest mb-3">Stone Facade</h3>
+            <p class="font-body text-slate text-sm leading-relaxed">
+              Hand-laid Pennsylvania bluestone exterior with cedar shingle accents — a classic New England aesthetic executed with modern precision.
+            </p>
+          </div>
+
+          <div class="exterior-card group bg-forest border border-forest rounded-sm p-8 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+            <div class="w-12 h-12 rounded-sm bg-ivory/10 flex items-center justify-center mb-6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d4af6a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-ivory mb-3">Backyard & Covered Patio</h3>
+            <p class="font-body text-ivory/70 text-sm leading-relaxed">
+              Expansive backyard with a 600 sq ft covered bluestone patio, outdoor kitchen roughed-in, and room for a pool. The ultimate entertainer's canvas.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTERIOR SHOWCASE ============ -->
+    <section id="interior" class="py-24 px-6 bg-charcoal">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Section header -->
+        <div class="flex items-end justify-between mb-16 border-b border-ivory/10 pb-8">
+          <div>
+            <p class="font-mono text-[11px] tracking-[0.25em] uppercase text-brass mb-3">02 — Interior</p>
+            <h2 class="font-display text-4xl md:text-5xl font-light text-ivory leading-tight" style="letter-spacing: -0.02em;">
+              Refined Interiors<br /><em class="text-ivory/60">Crafted for Living</em>
+            </h2>
+          </div>
+          <p class="hidden md:block font-body text-slate-light text-sm max-w-xs text-right leading-relaxed">
+            Thoughtfully designed spaces that balance warmth and sophistication throughout every room.
+          </p>
+        </div>
+
+        <!-- Interior features — alternating layout -->
+        <div class="space-y-4">
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+            <div class="interior-feature md:col-span-2 bg-ivory/5 border border-ivory/10 rounded-sm p-10 flex gap-8 items-start hover:bg-ivory/8 transition-colors">
+              <div class="shrink-0 w-14 h-14 rounded-sm bg-brass/15 flex items-center justify-center">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b8933e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 2l18 0"/><path d="M3 7l18 0"/><path d="M3 12l18 0"/><path d="M3 17l18 0"/><path d="M3 22l18 0"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-ivory mb-3">Chef's Kitchen</h3>
+                <p class="font-body text-ivory/60 leading-relaxed">
+                  A culinary masterpiece featuring 3cm thick Calacatta quartz waterfall island, Wolf 48" dual-fuel range, Sub-Zero refrigerator, Miele dishwasher, and custom white oak cabinetry to the ceiling. A walk-in pantry completes this entertainer's dream.
+                </p>
+              </div>
+            </div>
+
+            <div class="interior-feature bg-brass/10 border border-brass/20 rounded-sm p-10 flex flex-col justify-between hover:bg-brass/15 transition-colors">
+              <div class="w-14 h-14 rounded-sm bg-brass/20 flex items-center justify-center mb-6">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4af6a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-ivory mb-3">Open-Concept Living</h3>
+                <p class="font-body text-ivory/60 text-sm leading-relaxed">
+                  Seamlessly flowing living, dining, and kitchen create a 1,100 sq ft great room bathed in natural light from floor-to-ceiling windows.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+            <div class="interior-feature bg-ivory/5 border border-ivory/10 rounded-sm p-10 flex flex-col hover:bg-ivory/8 transition-colors">
+              <div class="w-14 h-14 rounded-sm bg-forest/30 flex items-center justify-center mb-6">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4a7c5c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl font-semibold text-ivory mb-3">Primary Suite</h3>
+              <p class="font-body text-ivory/60 text-sm leading-relaxed">
+                A 620 sq ft retreat with spa bathroom featuring heated marble floors, freestanding soaking tub, dual rain showers, and dual walk-in closets.
+              </p>
+            </div>
+
+            <div class="interior-feature bg-ivory/5 border border-ivory/10 rounded-sm p-10 flex flex-col hover:bg-ivory/8 transition-colors">
+              <div class="w-14 h-14 rounded-sm bg-brass/15 flex items-center justify-center mb-6">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b8933e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl font-semibold text-ivory mb-3">Hardwood Floors</h3>
+              <p class="font-body text-ivory/60 text-sm leading-relaxed">
+                5" wide white oak hardwood throughout the main and upper levels, with radiant in-floor heating in the primary suite and bathrooms.
+              </p>
+            </div>
+
+            <div class="interior-feature bg-ivory/5 border border-ivory/10 rounded-sm p-10 flex flex-col hover:bg-ivory/8 transition-colors">
+              <div class="w-14 h-14 rounded-sm bg-ivory/10 flex items-center justify-center mb-6">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e8e4dc" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl font-semibold text-ivory mb-3">Home Office</h3>
+              <p class="font-body text-ivory/60 text-sm leading-relaxed">
+                Dedicated first-floor study with custom built-in bookshelves, coffered ceiling, and French door access to the rear garden.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="interior-feature bg-forest/40 border border-forest rounded-sm p-10 flex gap-8 items-start hover:bg-forest/50 transition-colors">
+            <div class="shrink-0 w-14 h-14 rounded-sm bg-forest flex items-center justify-center">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4af6a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-semibold text-ivory mb-3">Finished Basement</h3>
+              <p class="font-body text-ivory/60 leading-relaxed max-w-2xl">
+                1,100 sq ft finished lower level with 9-foot ceilings, media room, wet bar, full bath, and a separate exercise room. Pre-wired for a home theatre with 7.1 surround sound. Potential in-law suite with egress windows.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEIGHBORHOOD ============ -->
+    <section id="neighborhood" class="py-24 px-6 bg-parchment">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Section header -->
+        <div class="flex items-end justify-between mb-16 border-b border-border pb-8">
+          <div>
+            <p class="font-mono text-[11px] tracking-[0.25em] uppercase text-brass mb-3">03 — Neighborhood</p>
+            <h2 class="font-display text-4xl md:text-5xl font-light text-forest leading-tight" style="letter-spacing: -0.02em;">
+              Life at Your<br /><em>Doorstep</em>
+            </h2>
+          </div>
+          <p class="hidden md:block font-body text-slate text-sm max-w-xs text-right leading-relaxed">
+            Maple Grove Lane puts the very best of Ashwood within a short stroll or bike ride.
+          </p>
+        </div>
+
+        <!-- Amenity cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <div class="amenity-card bg-ivory border border-border rounded-sm p-7 flex items-start gap-5 hover:shadow-lg hover:border-brass/30 transition-all">
+            <div class="shrink-0 w-12 h-12 rounded-full bg-forest flex items-center justify-center text-2xl">
+              🌳
+            </div>
+            <div class="flex-1">
+              <div class="flex items-start justify-between mb-2">
+                <h3 class="font-display text-lg font-semibold text-forest">Maple Grove Park</h3>
+                <span class="font-mono text-xs bg-forest text-ivory px-2.5 py-1 rounded-full shrink-0 ml-2">0.3 mi</span>
+              </div>
+              <p class="font-body text-slate text-sm leading-relaxed">
+                25-acre park with trails, tennis courts, dog park, and weekend farmers' market.
+              </p>
+            </div>
+          </div>
+
+          <div class="amenity-card bg-ivory border border-border rounded-sm p-7 flex items-start gap-5 hover:shadow-lg hover:border-brass/30 transition-all">
+            <div class="shrink-0 w-12 h-12 rounded-full bg-brass/15 flex items-center justify-center text-2xl">
+              🛒
+            </div>
+            <div class="flex-1">
+              <div class="flex items-start justify-between mb-2">
+                <h3 class="font-display text-lg font-semibold text-forest">Whole Foods Market</h3>
+                <span class="font-mono text-xs bg-brass/20 text-forest px-2.5 py-1 rounded-full shrink-0 ml-2">0.8 mi</span>
+              </div>
+              <p class="font-body text-slate text-sm leading-relaxed">
+                Full-service Whole Foods with dedicated parking and in-store dining.
+              </p>
+            </div>
+          </div>
+
+          <div class="amenity-card bg-ivory border border-border rounded-sm p-7 flex items-start gap-5 hover:shadow-lg hover:border-brass/30 transition-all">
+            <div class="shrink-0 w-12 h-12 rounded-full bg-brass/15 flex items-center justify-center text-2xl">
+              ☕
+            </div>
+            <div class="flex-1">
+              <div class="flex items-start justify-between mb-2">
+                <h3 class="font-display text-lg font-semibold text-forest">Blue Bottle Coffee</h3>
+                <span class="font-mono text-xs bg-brass/20 text-forest px-2.5 py-1 rounded-full shrink-0 ml-2">0.5 mi</span>
+              </div>
+              <p class="font-body text-slate text-sm leading-relaxed">
+                Beloved specialty coffee shop with outdoor seating and weekend pour-over bar.
+              </p>
+            </div>
+          </div>
+
+          <div class="amenity-card bg-ivory border border-border rounded-sm p-7 flex items-start gap-5 hover:shadow-lg hover:border-brass/30 transition-all">
+            <div class="shrink-0 w-12 h-12 rounded-full bg-forest/10 flex items-center justify-center text-2xl">
+              🎒
+            </div>
+            <div class="flex-1">
+              <div class="flex items-start justify-between mb-2">
+                <h3 class="font-display text-lg font-semibold text-forest">Ashwood Elementary</h3>
+                <span class="font-mono text-xs bg-forest text-ivory px-2.5 py-1 rounded-full shrink-0 ml-2">0.6 mi</span>
+              </div>
+              <p class="font-body text-slate text-sm leading-relaxed">
+                Top-rated public school, ranked #1 in the district. Walk-zone eligible.
+              </p>
+              <div class="mt-2 inline-flex items-center gap-1.5 text-brass font-mono text-[11px] tracking-wide">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#b8933e"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                GreatSchools Rating: 9/10
+              </div>
+            </div>
+          </div>
+
+          <div class="amenity-card bg-ivory border border-border rounded-sm p-7 flex items-start gap-5 hover:shadow-lg hover:border-brass/30 transition-all">
+            <div class="shrink-0 w-12 h-12 rounded-full bg-brass/15 flex items-center justify-center text-2xl">
+              🍽️
+            </div>
+            <div class="flex-1">
+              <div class="flex items-start justify-between mb-2">
+                <h3 class="font-display text-lg font-semibold text-forest">The Mill Restaurant</h3>
+                <span class="font-mono text-xs bg-brass/20 text-forest px-2.5 py-1 rounded-full shrink-0 ml-2">0.4 mi</span>
+              </div>
+              <p class="font-body text-slate text-sm leading-relaxed">
+                Award-winning farm-to-table dining in a beautifully restored 1890s mill building.
+              </p>
+            </div>
+          </div>
+
+          <div class="amenity-card bg-ivory border border-border rounded-sm p-7 flex items-start gap-5 hover:shadow-lg hover:border-brass/30 transition-all">
+            <div class="shrink-0 w-12 h-12 rounded-full bg-forest/10 flex items-center justify-center text-2xl">
+              🏛️
+            </div>
+            <div class="flex-1">
+              <div class="flex items-start justify-between mb-2">
+                <h3 class="font-display text-lg font-semibold text-forest">Ashwood Town Center</h3>
+                <span class="font-mono text-xs bg-brass/20 text-forest px-2.5 py-1 rounded-full shrink-0 ml-2">1.2 mi</span>
+              </div>
+              <p class="font-body text-slate text-sm leading-relaxed">
+                Boutique retail, cinema, post office, library, and weekend art market. The heart of the community.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROPERTY DETAILS ============ -->
+    <section class="py-24 px-6 bg-surface">
+      <div class="max-w-7xl mx-auto">
+
+        <div class="mb-16 border-b border-border pb-8">
+          <p class="font-mono text-[11px] tracking-[0.25em] uppercase text-brass mb-3">04 — Specifications</p>
+          <h2 class="font-display text-4xl md:text-5xl font-light text-forest" style="letter-spacing: -0.02em;">Property Details</h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border">
+          <div class="bg-surface p-8 text-center hover:bg-brass/5 transition-colors">
+            <div class="font-display text-3xl font-semibold text-forest mb-2">2018</div>
+            <div class="font-mono text-[11px] tracking-widest uppercase text-slate-light">Year Built</div>
+          </div>
+          <div class="bg-surface p-8 text-center hover:bg-brass/5 transition-colors">
+            <div class="font-display text-3xl font-semibold text-forest mb-2">0.42</div>
+            <div class="font-mono text-[11px] tracking-widest uppercase text-slate-light">Acres</div>
+          </div>
+          <div class="bg-surface p-8 text-center hover:bg-brass/5 transition-colors">
+            <div class="font-display text-3xl font-semibold text-forest mb-2">$185</div>
+            <div class="font-mono text-[11px] tracking-widest uppercase text-slate-light">HOA / Mo</div>
+          </div>
+          <div class="bg-surface p-8 text-center hover:bg-brass/5 transition-colors">
+            <div class="font-display text-2xl font-semibold text-forest mb-2">2-Car</div>
+            <div class="font-mono text-[11px] tracking-widest uppercase text-slate-light">Attached Garage</div>
+          </div>
+          <div class="bg-surface p-8 text-center hover:bg-brass/5 transition-colors">
+            <div class="font-display text-2xl font-semibold text-forest mb-2">Dual-Zone</div>
+            <div class="font-mono text-[11px] tracking-widest uppercase text-slate-light">HVAC</div>
+          </div>
+          <div class="bg-surface p-8 text-center hover:bg-brass/5 transition-colors">
+            <div class="font-display text-2xl font-semibold text-forest mb-2 flex items-center justify-center gap-1">
+              9/10
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#b8933e"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="font-mono text-[11px] tracking-widest uppercase text-slate-light">School District</div>
+          </div>
+        </div>
+
+        <!-- Additional details -->
+        <div class="mt-px bg-border">
+          <div class="bg-surface p-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm font-body text-slate">
+              <div>
+                <span class="font-mono text-[10px] tracking-widest uppercase text-brass block mb-1">School District</span>
+                Ashwood USD &middot; Ashwood Elementary (9/10) &middot; Ashwood Middle (8/10) &middot; Ashwood High (9/10)
+              </div>
+              <div>
+                <span class="font-mono text-[10px] tracking-widest uppercase text-brass block mb-1">Utilities</span>
+                Natural gas, municipal water & sewer, fiber optic internet ready, 200A electrical panel
+              </div>
+              <div>
+                <span class="font-mono text-[10px] tracking-widest uppercase text-brass block mb-1">Recent Upgrades</span>
+                New roof (2023), kitchen remodel (2022), primary bath renovation (2023), HVAC replacement (2021)
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ LEAD CAPTURE / TOUR ============ -->
+    <section id="tour" class="py-24 px-6 bg-forest relative overflow-hidden">
+
+      <!-- Decorative background pattern -->
+      <div class="absolute inset-0 opacity-5" aria-hidden="true" style="background-image: repeating-linear-gradient(45deg, rgba(184,147,62,0.5) 0px, rgba(184,147,62,0.5) 1px, transparent 1px, transparent 50px), repeating-linear-gradient(-45deg, rgba(184,147,62,0.5) 0px, rgba(184,147,62,0.5) 1px, transparent 1px, transparent 50px);"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+          <div>
+            <p class="font-mono text-[11px] tracking-[0.25em] uppercase text-brass-light mb-4">05 — Contact</p>
+            <h2 class="font-display text-4xl md:text-5xl font-light text-ivory leading-tight mb-6" style="letter-spacing: -0.02em;">
+              Request a<br /><em>Private Tour</em>
+            </h2>
+            <p class="font-body text-ivory/60 leading-relaxed mb-10">
+              This property is generating exceptional interest. Register now to schedule your exclusive showing, receive updates on open house dates, and be notified immediately of any price adjustments.
+            </p>
+            <div class="space-y-4 text-sm font-body text-ivory/70">
+              <div class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full border border-brass/60 flex items-center justify-center shrink-0">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#b8933e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                Priority scheduling for private showings
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full border border-brass/60 flex items-center justify-center shrink-0">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#b8933e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                Instant price change notifications
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full border border-brass/60 flex items-center justify-center shrink-0">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#b8933e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                Full disclosure package & floor plans
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full border border-brass/60 flex items-center justify-center shrink-0">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#b8933e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                No spam — just meaningful property updates
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-ivory/8 border border-ivory/15 rounded-sm p-10 backdrop-blur-sm">
+            <h3 class="font-display text-2xl font-medium text-ivory mb-2">Express Interest</h3>
+            <p class="font-body text-ivory/50 text-sm mb-8">We'll be in touch within 24 hours.</p>
+            <div class="signup-wrapper">
+              <SignupForm campaign="house-listing" apiUrl={apiUrl} />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-charcoal py-12 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-ivory/10">
+        <div>
+          <div class="font-display text-xl font-semibold text-ivory mb-1">Ashwood Estate</div>
+          <div class="font-mono text-[10px] tracking-[0.2em] uppercase text-brass mb-4">142 Maple Grove Lane</div>
+          <p class="font-body text-ivory/40 text-sm">Ashwood, CA 94301 &middot; $1,285,000</p>
+        </div>
+        <div>
+          <div class="font-mono text-[10px] tracking-[0.2em] uppercase text-brass mb-4">Listing Agent</div>
+          <div class="font-display text-lg font-medium text-ivory mb-1">Victoria Hartwell</div>
+          <p class="font-body text-ivory/50 text-sm">DRE #01928374</p>
+          <p class="font-body text-ivory/50 text-sm mt-1">Hartwell Real Estate Group</p>
+          <p class="font-body text-ivory/50 text-sm mt-1">(415) 555-0147</p>
+        </div>
+        <div>
+          <div class="font-mono text-[10px] tracking-[0.2em] uppercase text-brass mb-4">Quick Links</div>
+          <div class="space-y-2 text-sm font-body">
+            <a href="#exterior" class="block text-ivory/50 hover:text-ivory transition-colors">Exterior</a>
+            <a href="#interior" class="block text-ivory/50 hover:text-ivory transition-colors">Interior</a>
+            <a href="#neighborhood" class="block text-ivory/50 hover:text-ivory transition-colors">Neighborhood</a>
+            <a href="#tour" class="block text-ivory/50 hover:text-ivory transition-colors">Schedule a Tour</a>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body text-ivory/30 text-xs">
+          &copy; 2026 Hartwell Real Estate Group. All rights reserved. Information deemed reliable but not guaranteed.
+        </p>
+        <p class="font-mono text-[10px] text-ivory/20 tracking-widest uppercase">Equal Housing Opportunity</p>
+      </div>
+    </div>
+  </footer>
+
+</Layout>
+
+<style>
+  .hero-scene {
+    /* Ensure house illustrations are visible */
+    overflow: hidden;
+  }
+
+  /* Signup form overrides for dark forest background */
+  .signup-wrapper :global(.signup-form__input) {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #f7f3ec !important;
+  }
+
+  .signup-wrapper :global(.signup-form__input)::placeholder {
+    color: rgba(247, 243, 236, 0.4);
+  }
+
+  .signup-wrapper :global(.signup-form__input:focus) {
+    border-color: #b8933e !important;
+  }
+
+  .signup-wrapper :global(.signup-form__button) {
+    background: #b8933e !important;
+    letter-spacing: 0.05em;
+    font-family: var(--font-body);
+  }
+
+  .signup-wrapper :global(.signup-form__button:hover) {
+    background: #d4af6a !important;
+  }
+
+  .signup-wrapper :global(.signup-form__message) {
+    color: rgba(247, 243, 236, 0.7);
+  }
+</style>

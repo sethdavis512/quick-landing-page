@@ -1,0 +1,16 @@
+{
+  "name": "landing-c",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "astro build",
+    "dev": "astro dev",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5",
+    "@quick-landing-page/ui": "workspace:*",
+    "@quick-landing-page/shared-config": "workspace:*",
+    "@quick-landing-page/tailwind-config": "workspace:*"
+  }
+}

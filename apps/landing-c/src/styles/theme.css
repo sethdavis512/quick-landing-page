@@ -1,0 +1,29 @@
+@import "@quick-landing-page/tailwind-config/base.css";
+
+@source "../../../../packages/ui/src/**/*.astro";
+
+@theme {
+  --color-ivory: #f7f3ec;
+  --color-parchment: #ede6d6;
+  --color-forest: #1b3a2d;
+  --color-forest-dark: #0f2218;
+  --color-forest-mid: #254d3c;
+  --color-brass: #b8933e;
+  --color-brass-light: #d4af6a;
+  --color-slate: #4a5060;
+  --color-slate-light: #7a8090;
+  --color-charcoal: #1c1e24;
+  --color-mist: #e8e4dc;
+  --color-surface: #faf8f4;
+  --color-border: #ddd8cc;
+  --color-accent: #b8933e;
+
+  --font-display: "Cormorant Garamond", "Palatino Linotype", Georgia, serif;
+  --font-body: "Jost", "Nunito Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
