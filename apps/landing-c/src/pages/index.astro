@@ -5,7 +5,15 @@ import { Button, SignupForm } from "@quick-landing-page/ui";
 const apiUrl = import.meta.env.PUBLIC_API_URL;
 ---
 
-<Layout title="Ashwood Estate — 142 Maple Grove Lane" description="A stunning 4-bedroom luxury home at 142 Maple Grove Lane. $1,285,000. Schedule your private tour today.">
+<Layout title="Ashwood Estate — 142 Maple Grove Lane" description="A stunning 4-bedroom luxury home at 142 Maple Grove Lane. $1,285,000. Schedule your private tour today. Austin, TX.">
+
+  <!-- ============ DEMO BANNER ============ -->
+  <div class="w-full py-4 px-6 text-center font-body text-sm" style="background: #1b3a2d; border-bottom: 1px solid rgba(184,147,62,0.3);">
+    <span class="text-ivory/70">This page is for demonstration purposes only &nbsp;&middot;&nbsp;</span>
+    <a href="https://sethdavis.tech/freelance" target="_blank" rel="noopener noreferrer" class="text-brass-light font-medium hover:text-ivory transition-colors underline underline-offset-2">
+      Interested in a site like this?
+    </a>
+  </div>
 
   <!-- ============ NAV ============ -->
   <nav class="sticky top-0 z-50 bg-ivory/90 backdrop-blur-sm border-b border-border">
@@ -26,14 +34,14 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
   <main>
 
     <!-- ============ HERO ============ -->
-    <section class="relative min-h-screen flex flex-col overflow-hidden">
+    <section class="relative min-h-[80vh] flex flex-col overflow-hidden">
 
       <!-- Hero photo -->
       <div class="absolute inset-0" aria-hidden="true">
         <img
           src="https://res.cloudinary.com/setholito/image/upload/w_1920,h_1080,c_fill,g_auto,q_auto,f_auto/v1769288780/replicate-generated/realtor-1769288780108.jpg"
           alt="Ashwood Estate exterior"
-          class="w-full h-full object-cover object-center"
+          class="w-full h-full object-cover object-[center_70%]"
         />
         <!-- Gradient overlay for content readability -->
         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(15,34,24,0.2) 0%, rgba(15,34,24,0.05) 40%, rgba(15,34,24,0.78) 100%);"></div>
@@ -43,14 +51,14 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
       <div class="relative z-10 mt-auto pb-16 px-6">
         <div class="max-w-7xl mx-auto">
           <div class="max-w-2xl">
-            <p class="font-mono text-xs tracking-[0.25em] uppercase text-brass-light mb-4 animate-fade-up">
+            <p class="inline-block font-mono text-xs tracking-[0.25em] uppercase text-brass-light mb-4 animate-fade-up px-4 py-1.5 rounded-full" style="background: rgba(15,34,24,0.55); backdrop-filter: blur(6px); border: 1px solid rgba(184,147,62,0.35);">
               Exclusively Listed
             </p>
             <h1 class="font-display font-light text-ivory leading-none mb-4 animate-fade-up delay-1" style="font-size: clamp(3.5rem, 8vw, 6.5rem); letter-spacing: -0.02em;">
               Ashwood<br /><em style="font-style: italic; font-weight: 300;">Estate</em>
             </h1>
             <p class="font-body text-ivory/70 text-lg mb-8 animate-fade-up delay-2">
-              142 Maple Grove Lane &nbsp;&middot;&nbsp; Ashwood, CA 94301
+              142 Maple Grove Lane &nbsp;&middot;&nbsp; Austin, TX 78701
             </p>
 
             <!-- Key stats bar -->
@@ -106,7 +114,7 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
     <section class="bg-forest py-10 px-6">
       <div class="max-w-7xl mx-auto flex flex-wrap gap-8 items-center justify-between">
         <p class="font-display italic text-ivory/80 text-xl md:text-2xl font-light max-w-xl">
-          "Where timeless craftsmanship meets contemporary comfort — a rare opportunity in one of Ashwood's most sought-after streets."
+          "Where timeless craftsmanship meets contemporary comfort — a rare opportunity in one of Austin's most sought-after streets."
         </p>
         <div class="flex gap-8">
           <div class="text-center">
@@ -349,7 +357,7 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
             </h2>
           </div>
           <p class="hidden md:block font-body text-slate text-sm max-w-xs text-right leading-relaxed">
-            Maple Grove Lane puts the very best of Ashwood within a short stroll or bike ride.
+            Maple Grove Lane puts the very best of Austin within a short stroll or bike ride.
           </p>
         </div>
 
@@ -407,7 +415,7 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
             </div>
             <div class="flex-1">
               <div class="flex items-start justify-between mb-2">
-                <h3 class="font-display text-lg font-semibold text-forest">Ashwood Elementary</h3>
+                <h3 class="font-display text-lg font-semibold text-forest">Austin Elementary</h3>
                 <span class="font-mono text-xs bg-forest text-ivory px-2.5 py-1 rounded-full shrink-0 ml-2">0.6 mi</span>
               </div>
               <p class="font-body text-slate text-sm leading-relaxed">
@@ -441,7 +449,7 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
             </div>
             <div class="flex-1">
               <div class="flex items-start justify-between mb-2">
-                <h3 class="font-display text-lg font-semibold text-forest">Ashwood Town Center</h3>
+                <h3 class="font-display text-lg font-semibold text-forest">Austin Town Center</h3>
                 <span class="font-mono text-xs bg-brass/20 text-forest px-2.5 py-1 rounded-full shrink-0 ml-2">1.2 mi</span>
               </div>
               <p class="font-body text-slate text-sm leading-relaxed">
@@ -499,7 +507,7 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm font-body text-slate">
               <div>
                 <span class="font-mono text-[10px] tracking-widest uppercase text-brass block mb-1">School District</span>
-                Ashwood USD &middot; Ashwood Elementary (9/10) &middot; Ashwood Middle (8/10) &middot; Ashwood High (9/10)
+                Austin ISD &middot; Austin Elementary (9/10) &middot; Austin Middle (8/10) &middot; Austin High (9/10)
               </div>
               <div>
                 <span class="font-mono text-[10px] tracking-widest uppercase text-brass block mb-1">Utilities</span>
@@ -582,14 +590,16 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
         <div>
           <div class="font-display text-xl font-semibold text-ivory mb-1">Ashwood Estate</div>
           <div class="font-mono text-[10px] tracking-[0.2em] uppercase text-brass mb-4">142 Maple Grove Lane</div>
-          <p class="font-body text-ivory/40 text-sm">Ashwood, CA 94301 &middot; $1,285,000</p>
+          <p class="font-body text-ivory/40 text-sm">Austin, TX 78701 &middot; $1,285,000</p>
         </div>
         <div>
           <div class="font-mono text-[10px] tracking-[0.2em] uppercase text-brass mb-4">Listing Agent</div>
-          <div class="font-display text-lg font-medium text-ivory mb-1">Victoria Hartwell</div>
-          <p class="font-body text-ivory/50 text-sm">DRE #01928374</p>
-          <p class="font-body text-ivory/50 text-sm mt-1">Hartwell Real Estate Group</p>
-          <p class="font-body text-ivory/50 text-sm mt-1">(415) 555-0147</p>
+          <div class="font-display text-lg font-medium text-ivory mb-1">Scott Verastegui</div>
+          <p class="font-body text-ivory/50 text-sm">REALTOR &middot; LIC# 818662-SA</p>
+          <p class="font-body text-ivory/50 text-sm mt-1">Pure Realty</p>
+          <p class="font-body text-ivory/50 text-sm mt-1">O. (512) 337-0400 &nbsp;&middot;&nbsp; M. (832) 867-6995</p>
+          <a href="mailto:scottverastegui@purerealty.com" class="font-body text-ivory/50 text-sm mt-1 block hover:text-brass-light transition-colors">scottverastegui@purerealty.com</a>
+          <p class="font-body text-ivory/50 text-sm mt-1">305 Denali Pass Ste. C, Cedar Park, TX 78613</p>
         </div>
         <div>
           <div class="font-mono text-[10px] tracking-[0.2em] uppercase text-brass mb-4">Quick Links</div>
