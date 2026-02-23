@@ -2,6 +2,8 @@
 
 A Turborepo monorepo for spinning up multiple Astro static landing pages with shared UI components and configuration, backed by a Hono API for email sign-ups.
 
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/aNI-w2?referralCode=YZe1VE&utm_medium=integration&utm_source=template&utm_campaign=generic)
+
 ## Project Structure
 
 ```
