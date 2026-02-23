@@ -11,7 +11,9 @@
       "Skill(railway:domain:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(railway logs:*)"
+      "Bash(railway logs:*)",
+      "WebFetch(domain:docs.railway.com)",
+      "WebFetch(domain:railway.com)"
     ]
   }
 }
