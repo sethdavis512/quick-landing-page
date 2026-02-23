@@ -1,0 +1,57 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/theme.css";
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Admin" } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: "/", label: "Dashboard" },
+  { href: "/signups", label: "Signups" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — Quick Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <ClientRouter />
+  </head>
+  <body class="bg-bg text-text font-body min-h-screen flex">
+    <nav class="w-56 bg-surface border-r border-border p-4 flex flex-col gap-1 shrink-0">
+      <h1 class="text-lg font-bold mb-4 px-3">Admin</h1>
+      {navItems.map(function (item) {
+        const isActive = currentPath === item.href
+          || (item.href !== "/" && currentPath.startsWith(item.href));
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              "px-3 py-2 rounded-md text-sm transition-colors",
+              isActive
+                ? "bg-accent text-white"
+                : "text-muted hover:text-text hover:bg-bg",
+            ]}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+    <main class="flex-1 p-6 overflow-auto">
+      <slot />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+@import "@quick-landing-page/tailwind-config/base.css";
+
+@theme {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #f1f5f9;
+  --color-muted: #94a3b8;
+  --color-border: #334155;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #60a5fa;
+
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", monospace;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}

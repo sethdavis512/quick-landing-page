@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install:*)",
+      "Bash(pnpm --filter landing-c build:*)",
+      "Skill(railway:new)",
+      "Skill(railway:new:*)",
+      "Skill(railway:deploy)",
+      "Skill(railway:deploy:*)",
+      "Skill(railway:domain)",
+      "Skill(railway:domain:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(railway logs:*)"
+    ]
+  }
+}

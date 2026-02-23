@@ -1,0 +1,44 @@
+---
+import { actions } from "astro:actions";
+import Admin from "../layouts/Admin.astro";
+
+const { data: stats, error } = await Astro.callAction(actions.getStats, {});
+
+const totalSignups = stats
+  ? stats.reduce(function (sum, s) { return sum + s.signups; }, 0)
+  : 0;
+---
+
+<Admin title="Dashboard">
+  <h2 class="text-2xl font-bold mb-6">Campaign Statistics</h2>
+
+  {error && (
+    <p class="text-red-500 mb-4">Failed to load stats.</p>
+  )}
+
+  {stats && stats.length === 0 && (
+    <p class="text-muted">No campaigns found.</p>
+  )}
+
+  {stats && stats.length > 0 && (
+    <>
+      <p class="text-sm text-muted mb-4">{totalSignups} total signup(s) across {stats.length} campaign(s)</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {stats.map(function (stat) {
+          return (
+            <div class="bg-surface border border-border rounded-lg p-5">
+              <h3 class="font-semibold text-lg">{stat.campaign}</h3>
+              <p class="text-3xl font-bold text-accent mt-2">{stat.signups}</p>
+              <p class="text-sm text-muted mt-1">signups</p>
+              <div class="mt-3 text-xs text-muted space-y-1">
+                <p>First: {new Date(stat.first).toLocaleDateString()}</p>
+                <p>Latest: {new Date(stat.latest).toLocaleDateString()}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  )}
+</Admin>

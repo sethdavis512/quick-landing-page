@@ -1,0 +1,17 @@
+{
+  "name": "admin",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "astro build",
+    "dev": "astro dev",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5",
+    "@astrojs/node": "^9",
+    "postgres": "^3",
+    "@quick-landing-page/shared-config": "workspace:*",
+    "@quick-landing-page/tailwind-config": "workspace:*"
+  }
+}
